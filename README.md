@@ -11,14 +11,14 @@ junit、jacoco、maven
 1. 首先你需要将这份maven项目克隆至本地，并进入项目工程目录使用命令`mvn test`进行测试（你也可以选择将这个项目导入到Eclipse或Intellij等工具中在导航栏选择Run as maven test）；
 
 2. 随后你会发现在`/target/site/jacoco`目录下有一个产生了一个名字为`index.html`的文件（至于为什么会产生，请查看pom.xml配置），在浏览器打开这个文件，你会看到下图：
-![image](https://github.com/2019NJUSAT/White-Box-Testing-/blob/master/IMG/image-20191115210656311.png)
+![image](https://github.com/EdmundSirius/White-Box-Testing-/blob/master/IMG/image-20191115210656311.png)
   
 
   
 
 以  Method3为例，在HelloWorldTest中仅对Method3进行了两次测试，导致Method3的语句覆盖率和分支覆盖率均未达到100%，如下所示：
 
-![image-20191115210743488](https://github.com/2019NJUSAT/White-Box-Testing-/blob/master/IMG/image-20191115210743488.png)
+![image-20191115210743488](https://github.com/EdmundSirius/White-Box-Testing-/blob/master/IMG/image-20191115210743488.png)
 
 其中绿色表示你的测试用例所覆盖的分支或语句，红色表示没有覆盖的分支或语句，黄色表示没有覆盖完全。
 
@@ -28,3 +28,12 @@ junit、jacoco、maven
 ## 提交方式
 
 将github链接分享给助教，在README里截图最后的html报告
+
+## 实验结果
+
+html报告如下：
+![html-report](https://github.com/EdmundSirius/White-Box-Testing-/blob/master/IMG/HTML%E6%8A%A5%E5%91%8A.png)
+
+其中Method4的分支覆盖率未达到100%的原因如下：
+![method4](https://github.com/EdmundSirius/White-Box-Testing-/blob/master/IMG/Method4.png)
+若要保证if判断条件((a == b) || ((c == d) && (bug(a))))的所有分支都被覆盖则会导致x=0，进而e=1/x语句会报错（除法中除数为0），所以可以测试出此处是一个bug。
